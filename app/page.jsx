@@ -161,7 +161,7 @@ poster: 'https://plus.unsplash.com/premium_photo-1658526991238-f34a36d968fc?w=50
 {
 title: 'Movie 7',
 description: 'This is another movie',
-poster: 'https://plus.unsplash.com/premium_photo-1658526991238-f34a36d968fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmlraW5pfGVufDB8fDB8fHww'
+poster: 'https://cdn.discordapp.com/attachments/1267180380708929559/1270804328919076945/image.png?ex=66b50842&is=66b3b6c2&hm=a5cb2dd9fa979d0f7899b8f6f1390322329f41f59a36fba401d1ac2280868b1c&'
 }
 ];
 
@@ -219,9 +219,6 @@ const Home = () => {
       <div>
         <p>{output}</p> {/* Display API response */}
       </div>
-           
-             
-
             <Feed />
         </section>
     )
