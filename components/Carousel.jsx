@@ -3,13 +3,13 @@ import { useState } from 'react';
 const Carousel = ({ movies }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = movies.length;
-
+  const mod = totalSlides/5;
   const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+    setCurrentSlide((prevSlide) => (prevSlide + 1)%mod);
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+    setCurrentSlide((prevSlide) => (prevSlide - 1 )%mod);
   };
 
   return (
