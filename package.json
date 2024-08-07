@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "mongoose": "^8.5.2",
     "next": "14.2.5",
-    "generative-ai": "https://github.com/google/generative-ai.git"
+    "next-auth": "^4.24.7",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@google/generative-ai": "latest",

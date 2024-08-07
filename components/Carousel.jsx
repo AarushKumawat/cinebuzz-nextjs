@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const Carousel = ({ movies }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = movies.length;
-  const mod = totalSlides/5;
+  const mod = totalSlides / 5;
   const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1)%mod);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % mod);
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 )%mod);
+    setCurrentSlide((prevSlide) => (prevSlide - 1) % mod);
   };
 
   return (
@@ -20,7 +20,10 @@ const Carousel = ({ movies }) => {
           onClick={handlePrev}
           className="bg-black text-white py-2 px-4 rounded-full black_btn"
         >
-          <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>&#8592;</span> {/* Thicker arrow */}
+          <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+            &#8592;
+          </span>{" "}
+          {/* Thicker arrow */}
         </button>
       </div>
 
@@ -30,7 +33,10 @@ const Carousel = ({ movies }) => {
           onClick={handleNext}
           className="bg-black text-white py-2 px-4 rounded-full black_btn"
         >
-          <span style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>&#8594;</span> {/* Thicker arrow */}
+          <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+            &#8594;
+          </span>{" "}
+          {/* Thicker arrow */}
         </button>
       </div>
 
@@ -49,7 +55,7 @@ const Carousel = ({ movies }) => {
                 src={movie.poster}
                 alt="Movie poster"
                 className="w-full h-72 object-cover transition-transform duration-500 ease-in-out"
-                style={{ borderRadius: '0' }} // Remove curved corners from the image
+                style={{ borderRadius: "0" }} // Remove curved corners from the image
               />
               <button
                 type="button"
