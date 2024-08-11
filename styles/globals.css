@@ -4,10 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
-
+/* Removed shading from the .main:before */
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -19,7 +16,8 @@
 }
 
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  /* Removed the shading background here */
+  background: none;
   position: absolute;
   content: "";
   z-index: 2;
@@ -40,6 +38,7 @@
   filter: invert(1);
 }
 
+/* Adjusting the gradient styling */
 .gradient {
   height: fit-content;
   z-index: 3;
@@ -113,8 +112,9 @@
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
 }
 
+/* Removed border shading and adjusted styling */
 .glassmorphism {
-  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+  @apply rounded-xl border border-gray-200 bg-white p-5;
 }
 
 .prompt_layout {

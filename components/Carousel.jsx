@@ -138,7 +138,7 @@ const Carousel = ({ movies }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentMovieIndex((prevIndex) => (prevIndex + 1) );
+      setCurrentMovieIndex((prevIndex) => (prevIndex + 1)%totalSlides);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -151,7 +151,7 @@ const Carousel = ({ movies }) => {
   return (
     <div className="relative w-full h-auto overflow-hidden -mr-36">
       {/* Highlighted Movie Box */}
-      <div className="mb-4  relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-full mx-auto mt-8 h-100 " >
+      <div className="mb-4  relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-full mx-auto mt-8 h- " >
         <img
           src={movies[currentMovieIndex].poster}
           alt="Highlighted Movie"
