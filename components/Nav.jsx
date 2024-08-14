@@ -1,9 +1,8 @@
 "use client";
 
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
@@ -15,7 +14,7 @@ const Nav = () => {
     const setUpProviders = async () => {
       const response = await getProviders();
       setProviders(response);
-    }
+    };
     setUpProviders();
   }, []);
 
@@ -67,14 +66,14 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="black_btn"
-                >
-                  Sign In
-                </button>
+                <Link href="/sign-in" key={provider.name}>
+                  <button
+                    type="button"
+                    className="black_btn"
+                  >
+                    Sign In
+                  </button>
+                </Link>
               ))}
           </>
         )}
@@ -125,20 +124,20 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type="button"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="black_btn"
-                >
-                  Sign In
-                </button>
+                <Link href="/sign-in" key={provider.name}>
+                  <button
+                    type="button"
+                    className="black_btn"
+                  >
+                    Sign In
+                  </button>
+                </Link>
               ))}
           </>
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
