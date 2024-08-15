@@ -1,4 +1,5 @@
 import { DatePicker } from "@components/DatePicker";
+import TheatreCard from "@components/TheatreCard";
 
 export default function MovieEach() {
   const movie = {
@@ -36,6 +37,11 @@ export default function MovieEach() {
               <div className="ml-auto">
                 <DatePicker />
               </div>
+            </div>
+            <div className="pt-4">
+              <TheatreCard />
+              <TheatreCard />
+              <TheatreCard />
             </div>
           </div>
         </div>
