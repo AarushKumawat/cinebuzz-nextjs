@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 
 const Carousel = ({ movies }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const totalSlides = movies.length;
   const mod = totalSlides / 5;
+  const router = useRouter(); // Import the router
 
   const handleNext = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % mod);
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1) % mod);
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + mod) % mod);
   };
 
   useEffect(() => {
@@ -22,8 +24,9 @@ const Carousel = ({ movies }) => {
     return () => clearInterval(interval);
   }, [movies.length]);
 
-  const handleBookNow = (movie) => {
-    console.log(`Booking movie: ${movie.title}`);
+  const handleBookNow = () => {
+    // Redirect to the movies page
+    router.push('/movies'); // Adjust the path as needed
   };
 
   return (
@@ -82,7 +85,7 @@ const Carousel = ({ movies }) => {
                   {movie.description}
                 </div>
                 <button
-                  onClick={() => handleBookNow(movie)}
+                  onClick={handleBookNow} // Call the function here
                   className="z-10 mt-4 text-white py-2 px-4 rounded-full black_btn border border-white bg-transparent"
                 >
                   Book Now

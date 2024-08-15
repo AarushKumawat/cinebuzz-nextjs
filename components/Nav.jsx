@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Nav = () => {
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  // const router = useRouter(); // Correctly import and use useRouter
 
   useEffect(() => {
     const setUpProviders = async () => {
@@ -42,12 +44,9 @@ const Nav = () => {
 
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/create-prompt" className="black_btn">
-              Create Post
-            </Link>
             <button
               type="button"
-              onClick={signOut}
+              onClick={() => signOut({ callbackUrl: '/' })}
               className="outline_btn"
             >
               Sign Out
@@ -100,18 +99,12 @@ const Nav = () => {
                 >
                   My Profile
                 </Link>
-                <Link
-                  href="/create-prompt"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Create Prompt
-                </Link>
+                
                 <button
                   type="button"
                   onClick={() => {
                     setToggleDropdown(false);
-                    signOut();
+                    signOut({ callbackUrl: '/' });
                   }}
                   className="mt-5 w-full black_btn"
                 >
