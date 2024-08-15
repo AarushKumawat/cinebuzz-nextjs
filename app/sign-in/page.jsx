@@ -19,7 +19,6 @@ import Image from 'next/image';
 const SignIn = () => {
   const [providers, setProviders] = useState(null);
   const router = useRouter()
- 
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -43,7 +42,7 @@ const SignIn = () => {
             <CardDescription>
               Access your account with your credentials.
             </CardDescription>
-          </CardHeader>
+          </CardHeader> 
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
@@ -61,12 +60,12 @@ const SignIn = () => {
                 {Object.values(providers).map((provider) => (
                   <Button
                     key={provider.name}
-                    onClick={() =>{
-                      signIn(provider.id)
-                      router.push('/')
+                    onClick={() =>
+                      signIn(provider.id, {
+                        callbackUrl: '/', // Specify where to redirect after sign-in
+                      })
                     }
-                    } 
-                    className="flex items-center "
+                    className="flex items-center"
                   >
                     <Image 
                       src="/assets/images/google.png" // Path to Google logo

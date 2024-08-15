@@ -10,15 +10,14 @@ const handler = NextAuth({
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            // authorization: {
-            //     params: {
-            //         prompt: "select_account",
-            //         scope: "openid email profile"
-            //     }
-            // }
+            
 
         })
     ],
+    pages: {
+        signIn: 'localhost:3000/signin',  // Your custom sign-in page
+        newUser: 'localhost:3000/' // Redirect here after successful sign-in
+      },
     
 
         async session({session}){
@@ -31,6 +30,7 @@ const handler = NextAuth({
             return session;
             
         },
+
         async signIn({profile}){
             try{
                 //serverless -> lambda -> dynamodb
@@ -55,16 +55,9 @@ const handler = NextAuth({
     
             }catch(error){
                 console.log(error)
-             }
-                
-        
-
+             }        
     }
-
-    
-
 })
-
 
 
 export {handler as GET, handler as POST}

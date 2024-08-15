@@ -37,7 +37,7 @@
   height: 100%;
   top: 0;
   opacity: 0.6;
-  image-orientation: fit-content;
+  background-size: cover;
   /* filter: invert(1); */
 }
 
