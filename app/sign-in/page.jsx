@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link from next/link
 
 const SignIn = () => {
   const [providers, setProviders] = useState(null);
@@ -30,7 +31,7 @@ const SignIn = () => {
   }, []);
 
   return (
-    <Tabs defaultValue="signin" className="w-[400px] ">
+    <Tabs defaultValue="signin" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="signin">Sign In</TabsTrigger>
         <TabsTrigger value="signup">Sign Up</TabsTrigger>
@@ -79,8 +80,12 @@ const SignIn = () => {
               </div>
             )}
           </CardContent>
-          <CardFooter>
-            {/* Optionally include any additional footer content here */}
+          <CardFooter className="flex justify-end">
+            <Link href="/admin-sign-in">
+              <div className="text-sm  cursor-pointer hover:underline hover:text-blue-700">
+                Are you an admin?
+              </div>
+            </Link>
           </CardFooter>
         </Card>
       </TabsContent>
@@ -110,8 +115,8 @@ const SignIn = () => {
               <Input id="confirm-password" type="password" />
             </div>
           </CardContent>
-          <CardFooter>
-            <button className = "black_btn">Sign Up</button>
+          <CardFooter className="flex justify-end">
+            <Button className="black_btn">Sign Up</Button>
           </CardFooter>
         </Card>
       </TabsContent>
