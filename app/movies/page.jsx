@@ -5,14 +5,14 @@ import {
   CardTitle,
   CardDescription,
 } from "@components/ui/card";
+import Link from "next/link";
 
 export default async function MoviesRoot() {
   const data = await fetch(
-    "https://9390-103-187-81-72.ngrok-free.app/api/movies",
+    "http://localhost:5000/api/movies",
   )
     .then((response) => response.json())
     .catch((error) => console.error("Error:", error));
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {data.map((movie, index) => {
@@ -33,9 +33,11 @@ export default async function MoviesRoot() {
               <CardDescription>{movie.genre}</CardDescription>
             </CardHeader>
             <CardContent className="p-4">
+              <Link href={`/movies/${movie.id}`}>
               <button className="z-10 mt-4 text-black py-2 px-4 rounded-full black_btn border border-black bg-transparent">
                 Book Now
               </button>
+              </Link>
             </CardContent>
           </Card>
         );

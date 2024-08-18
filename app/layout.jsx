@@ -13,24 +13,24 @@ const Rootlayout = ({children}) => {
     return (
         <html lang = "en">
             <body>
-                <div className = "flex flex-col h-screen">
-              <Provider>
+            <div className="flex flex-col h-screen">
+                <Provider>
 
-                <div className = "main">
-                    <div className ="gradient"/>
+                    <div className="main">
+                        <div className="gradient"/>
+                    </div>
+
+                    <main className="app">
+                        <Nav/>
+                        {children}
+                    </main>
+                </Provider>
+                <div className="mt-auto">
+                    <Footer/>
                 </div>
-
-                <main className = "app">
-                    <Nav/>
-                    {children}
-                </main>
-              </Provider>
-              <div className = "mt-auto">
-              <Footer/>
-              </div>
-              </div>
+            </div>
             </body>
-            
+
         </html>
 
     )
