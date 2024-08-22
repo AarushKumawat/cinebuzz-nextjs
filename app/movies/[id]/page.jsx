@@ -1,8 +1,12 @@
+'use client'
 import { DatePicker } from "@components/DatePicker";
 import TheatreCard from "@components/TheatreCard";
+import { useEffect } from "react";
 
 export default async function MovieEach({ params }) {
     const { id } = params;
+
+    
 
     const movieResponse = await fetch(`http://localhost:5000/api/movies/${id}`);
     const movieData = await movieResponse.json().catch((error) => {
@@ -24,6 +28,7 @@ export default async function MovieEach({ params }) {
     return (
         <div className="w-full">
             <section className="w-full">
+                
                 <div className="container grid md:grid-cols-[300px_1fr] gap-8 items-center">
                     <img
                         src={movieData.image}
@@ -52,7 +57,7 @@ export default async function MovieEach({ params }) {
                         </div>
                         {/* Currently hardcoded , working on the API - Amit*/}
                         <div className="pt-4">
-                            <TheatreCard
+                            <TheatreCard 
                                     name={"Rajhans Cinemas"}
                                     times={["12:30PM", "3:30PM", "6:30PM", "9:30PM", "12:30AM"]}
                                 />
